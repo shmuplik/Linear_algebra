@@ -1,6 +1,8 @@
 #include "linear_algebra.hpp"
 #include <iostream>
 
+#define FIRST_ROW 0
+
 
 
 Matrix matrix_input(bool flag){
@@ -68,7 +70,7 @@ double det_computation(double** matrix, int size){
         int add = size - 1;
         result += std::pow(-1,j) * 
         matrix[0][j] * 
-        det_computation(minor(matrix, size, j), add);
+        det_computation(minor(matrix, size, j, FIRST_ROW), add);
 
     }
 
@@ -76,14 +78,14 @@ double det_computation(double** matrix, int size){
 }
 
 
-double** minor(double** m, int d, int k){
+double** minor(double** m, int d, int k, int l){
     double** newMatrix = new double*[d-1];
     for (int i = 0; i < d-1; ++i)
         newMatrix[i] = new double[d-1];
 
     int newI = 0;
     for(int i = 0; i < d; ++i){
-        if (!i)
+        if (i == l)
             continue;
         int newJ = 0;
         for(int j = 0; j < d; ++j){
