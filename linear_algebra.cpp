@@ -4,7 +4,6 @@
 #define FIRST_ROW 0
 
 
-
 Matrix matrix_input(bool flag){
     double a;
     int startSize = 100;

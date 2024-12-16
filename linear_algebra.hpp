@@ -6,7 +6,8 @@ struct Matrix{
     int dimension;
 };
 
-typedef unsigned int uint;
+typedef unsigned int uint; 
+
 
 void outputArray(double* m, int s);
 void output2Darray(double** m, int s);
